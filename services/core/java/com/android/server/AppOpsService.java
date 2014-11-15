@@ -84,6 +84,15 @@ public class AppOpsService extends IAppOpsService.Stub {
     final Handler mHandler;
     final Looper mLooper;
     final boolean mStrictEnable;
+    AppOpsPolicy mPolicy;
+
+    private static final int[] PRIVACY_GUARD_OP_STATES = new int[] {
+        AppOpsManager.OP_COARSE_LOCATION,
+        AppOpsManager.OP_READ_CALL_LOG,
+        AppOpsManager.OP_READ_CONTACTS,
+        AppOpsManager.OP_READ_CALENDAR,
+        AppOpsManager.OP_READ_SMS
+    };
 
     boolean mWriteScheduled;
     boolean mFastWriteScheduled;
@@ -1536,4 +1545,42 @@ public class AppOpsService extends IAppOpsService.Stub {
         }
     }
 
+    private void readPolicy() {
+        if (mStrictEnable) {
+            mPolicy = new AppOpsPolicy(new File(DEFAULT_POLICY_FILE), mContext);
+            mPolicy.readPolicy();
+            mPolicy.debugPoilcy();
+        } else {
+            mPolicy = null;
+        }
+    }
+
+    public boolean isControlAllowed(int code, String packageName) {
+        boolean isShow = true;
+        if (mPolicy != null) {
+            isShow = mPolicy.isControlAllowed(code, packageName);
+        }
+        return isShow;
+    }
+
+    @Override
+    public boolean getPrivacyGuardSettingForPackage(int uid, String packageName) {
+        for (int op : PRIVACY_GUARD_OP_STATES) {
+            int switchOp = AppOpsManager.opToSwitch(op);
+            int mode = checkOperation(op, uid, packageName);
+            if (mode != AppOpsManager.MODE_ALLOWED && mode != AppOpsManager.MODE_IGNORED) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void setPrivacyGuardSettingForPackage(int uid, String packageName, boolean state) {
+        for (int op : PRIVACY_GUARD_OP_STATES) {
+            int switchOp = AppOpsManager.opToSwitch(op);
+            setMode(switchOp, uid, packageName, state
+                    ? AppOpsManager.MODE_ASK : AppOpsManager.MODE_ALLOWED);
+        }
+    }
 }
