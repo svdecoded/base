@@ -454,15 +454,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mHeader.updateBatteryIconSettings();
                 mKeyguardStatusBar.updateBatteryIconSettings();
             } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL))
-                || uri.equals(Settings.System.getUriFor(
-                    Settings.System.SCREEN_BRIGHTNESS_MODE))) {
-                update();
-            } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.SU_INDICATOR))) {
                 mSuController.updateNotification();
                 mSuController.fireCallbacks();
             }
+            update();
         }
 
         public void update() {
@@ -477,6 +473,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             updateBatteryLevelText();
             mBatteryLevel.setVisibility(mShowBatteryText ? View.VISIBLE : View.GONE);
         }
+            
     }
 
     private void loadShowBatteryTextSetting() {
