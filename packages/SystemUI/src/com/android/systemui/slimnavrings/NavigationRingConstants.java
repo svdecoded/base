@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
 /*
- * Copyright 2015, The SlimRoms Project
+ * Copyright (C) 2015 The CyanogenMod Project
+ * Copyright (C) 2013 AOKP by Mike Wilson - Zaphod-Beeblebrox && Steve Spear - Stevespear426
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,15 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
--->
-<resources>
 
-    <!-- SLIM ROMS ADDITONS -->
-    <color name="battery_level_color">#ffffffff</color>
+package com.android.systemui.slimnavrings;
 
-    <!-- Navigation ring target -->
-    <color name="navring_check_tint">@android:color/white</color>
-    <color name="navring_edit_fill">#FF558B2F</color>
-    <color name="navring_edit_tint">#FF689F38</color>
-
-</resources>
+public class NavigationRingConstants {
+    public static final String BROADCAST =                    "android.intent.action.NAVBAR_RING_EDIT";
+}
