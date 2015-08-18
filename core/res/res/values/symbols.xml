@@ -341,15 +341,6 @@
   <java-symbol type="integer" name="config_wifi_framework_max_connection_errors_to_blacklist" />
   <java-symbol type="integer" name="config_wifi_framework_max_auth_errors_to_blacklist" />
   <java-symbol type="integer" name="config_wifi_framework_network_black_list_min_time_milli" />
-<<<<<<< HEAD
-=======
-  <java-symbol type="bool" name="config_radio_reset_on_regular_deactivation" />
-  <java-symbol type="bool" name="config_restricted_merge" />
-
-  <java-symbol type="bool" name="config_feature_iwlan_enabled" />
-  <java-symbol type="bool" name="def_telephony_spn_spec_enabled" />
-
->>>>>>> bcd5351... Frameworks: Move strings and symbols according to our code guidelines
   <java-symbol type="integer" name="config_wifi_framework_current_network_boost" />
   <java-symbol type="integer" name="config_bluetooth_max_advertisers" />
   <java-symbol type="integer" name="config_bluetooth_max_scan_filters" />
@@ -449,15 +440,6 @@
   <java-symbol type="string" name="CLIRDefaultOnNextCallOff" />
   <java-symbol type="string" name="CLIRDefaultOnNextCallOn" />
   <java-symbol type="string" name="CLIRPermanent" />
-<<<<<<< HEAD
-=======
-  <java-symbol type="string" name="def_custom_sys_ringtone" />
-  <java-symbol type="string" name="def_custom_sys_ringtone2" />
-  <java-symbol type="string" name="def_custom_sys_ringtone3" />
-  <java-symbol type="string" name="def_custom_sys_notification" />
-  <java-symbol type="string" name="def_custom_sys_mms" />
-  <java-symbol type="string" name="def_custom_sys_alarm" />
->>>>>>> bcd5351... Frameworks: Move strings and symbols according to our code guidelines
   <java-symbol type="string" name="CfMmi" />
   <java-symbol type="string" name="ClipMmi" />
   <java-symbol type="string" name="ClirMmi" />
