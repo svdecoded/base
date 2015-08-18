@@ -167,9 +167,9 @@ public class PhoneStatusBarPolicy {
         mSuController.addCallback(mSuCallback);
 
         // hotspot
-        mService.setIcon(SLOT_HOTSPOT, R.drawable.stat_sys_hotspot, 0, null);
-        mService.setIconVisibility(SLOT_HOTSPOT, mHotspot.isHotspotEnabled());
-        mHotspot.addCallback(mHotspotCallback);
+        //mService.setIcon(SLOT_HOTSPOT, R.drawable.stat_sys_hotspot, 0, null);
+        //mService.setIconVisibility(SLOT_HOTSPOT, mHotspot.isHotspotEnabled());
+        //mHotspot.addCallback(mHotspotCallback);
     }
 
     public void setZenMode(int zen) {

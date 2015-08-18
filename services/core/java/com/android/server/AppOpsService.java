@@ -80,6 +80,9 @@ public class AppOpsService extends IAppOpsService.Stub {
     // Write at most every 30 minutes.
     static final long WRITE_DELAY = DEBUG ? 1000 : 30*60*1000;
 
+    // Location of policy file.
+    static final String DEFAULT_POLICY_FILE = "/system/etc/appops_policy.xml";
+
     Context mContext;
     final AtomicFile mFile;
     final Handler mHandler;
@@ -1485,15 +1488,18 @@ public class AppOpsService extends IAppOpsService.Stub {
 
         @Override
         public void run() {
+            PermissionDialog permDialog = null;
             synchronized (AppOpsService.this) {
                 Log.e(TAG, "Creating dialog box");
                 op.dialogReqQueue.register(request);
                 if (op.dialogReqQueue.getDialog() == null) {
-                    Dialog d = new PermissionDialog(mContext,
+                    permDialog = new PermissionDialog(mContext,
                             AppOpsService.this, code, uid, packageName);
-                    op.dialogReqQueue.setDialog((PermissionDialog)d);
-                    d.show();
+                    op.dialogReqQueue.setDialog(permDialog);
                 }
+            }
+            if (permDialog != null) {
+                permDialog.show();
             }
         }
     }
@@ -1506,8 +1512,15 @@ public class AppOpsService extends IAppOpsService.Stub {
     }
 
     private int getDefaultMode(int code, int uid, String packageName) {
-        return AppOpsManager.opToDefaultMode(code,
+        int mode = AppOpsManager.opToDefaultMode(code,
                 isStrict(code, uid, packageName));
+        if (AppOpsManager.isStrictOp(code) && mPolicy != null) {
+            int policyMode = mPolicy.getDefualtMode(code, packageName);
+            if (policyMode != AppOpsManager.MODE_ERRORED) {
+                mode = policyMode;
+            }
+        }
+        return mode;
     }
 
     private boolean isStrict(int code, int uid, String packageName) {
