@@ -35,7 +35,6 @@ import com.android.internal.telephony.TelephonyIntents;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.policy.CastController;
 import com.android.systemui.statusbar.policy.CastController.CastDevice;
-import com.android.systemui.statusbar.policy.HotspotController;
 import com.android.systemui.statusbar.policy.SuController;
 
 /**
@@ -51,7 +50,6 @@ public class PhoneStatusBarPolicy {
 
     private static final String SLOT_SYNC_ACTIVE = "sync_active";
     private static final String SLOT_CAST = "cast";
-    private static final String SLOT_HOTSPOT = "hotspot";
     private static final String SLOT_BLUETOOTH = "bluetooth";
     private static final String SLOT_TTY = "tty";
     private static final String SLOT_ZEN = "zen";
@@ -64,7 +62,6 @@ public class PhoneStatusBarPolicy {
     private final StatusBarManager mService;
     private final Handler mHandler = new Handler();
     private final CastController mCast;
-    private final HotspotController mHotspot;
     private final SuController mSuController;
 
     // Assume it's all good unless we hear otherwise.  We don't always seem
@@ -166,10 +163,6 @@ public class PhoneStatusBarPolicy {
         mService.setIconVisibility(SLOT_SU, false);
         mSuController.addCallback(mSuCallback);
 
-        // hotspot
-        //mService.setIcon(SLOT_HOTSPOT, R.drawable.stat_sys_hotspot, 0, null);
-        //mService.setIconVisibility(SLOT_HOTSPOT, mHotspot.isHotspotEnabled());
-        //mHotspot.addCallback(mHotspotCallback);
     }
 
     public void setZenMode(int zen) {
@@ -317,13 +310,6 @@ public class PhoneStatusBarPolicy {
         }
         mService.setIconVisibility(SLOT_CAST, isCasting);
     }
-
-    private final HotspotController.Callback mHotspotCallback = new HotspotController.Callback() {
-        @Override
-        public void onHotspotChanged(boolean enabled) {
-            mService.setIconVisibility(SLOT_HOTSPOT, enabled);
-        }
-    };
 
     private void updateSu() {
         mService.setIconVisibility(SLOT_SU, mSuController.hasActiveSessions());
