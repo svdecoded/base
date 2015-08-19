@@ -69,6 +69,9 @@ public class SeekBar extends AbsSeekBar {
         void onStopTrackingTouch(SeekBar seekBar);
     }
 
+    /**
+    * @hide
+    */
     private OnSeekBarChangeListener mOnSeekBarChangeListener;
     
     public SeekBar(Context context) {
