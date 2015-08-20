@@ -30,6 +30,7 @@ import android.graphics.drawable.Drawable;
 import android.hardware.input.InputManager;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
@@ -45,6 +46,7 @@ import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.ImageView;
@@ -53,6 +55,7 @@ import com.android.internal.util.slim.ActionConstants;
 import com.android.internal.util.slim.Action;
 
 import com.android.systemui.R;
+import com.android.systemui.statusbar.phone.NavigationBarView;
 
 import java.util.ArrayList;
 
@@ -81,6 +84,7 @@ public class KeyButtonView extends ImageView {
     private LongClickCallback mCallback;
 
     private PowerManager mPm;
+    private final Handler mHandler = new Handler();
 
     private final Runnable mCheckLongPress = new Runnable() {
         public void run() {
@@ -122,8 +126,8 @@ public class KeyButtonView extends ImageView {
         setClickable(true);
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-        setBackground(new KeyButtonRipple(context, this));
-    }
+        setBackground(mRipple = new KeyButtonRipple(context, this));
+    }        
 
     @Override
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
