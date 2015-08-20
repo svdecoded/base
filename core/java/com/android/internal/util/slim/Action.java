@@ -23,7 +23,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.input.InputManager;
-import android.hardware.ITorchService;
+//import android.hardware.ITorchService;
 import android.media.AudioManager;
 import android.media.session.MediaSessionLegacyHelper;
 import android.media.ToneGenerator;
@@ -131,13 +131,13 @@ public class Action {
                 }
                 return;
             } else if (action.equals(ActionConstants.ACTION_TORCH)) {
-                try {
-                    ITorchService torchService = ITorchService.Stub.asInterface(
-                            ServiceManager.getService(Context.TORCH_SERVICE));
-                    torchService.toggleTorch();
-                } catch (RemoteException e) {
-                }
-                return;
+                //try {
+                  //  ITorchService torchService = ITorchService.Stub.asInterface(
+                    //        ServiceManager.getService(Context.TORCH_SERVICE));
+                    //torchService.toggleTorch();
+                //} catch (RemoteException e) {
+                //}
+                //return;
             } else if (action.equals(ActionConstants.ACTION_POWER_MENU)) {
                 try {
                     windowManagerService.toggleGlobalMenu();
