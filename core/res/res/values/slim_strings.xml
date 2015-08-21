@@ -82,7 +82,7 @@
     <string name="app_ops_write_sms">write an SMS message</string>
 
     <!-- USB_PREFERENCES: Notification for when the user connects the phone to a computer via USB in CHARGING mode.  This is the title -->
-    <string name="usb_charging_notification_title">Connected in charging mode</string>
+    <string name="usb_charging_notification_title">Conectado en modo carga.</string>
 
     <!-- Text for progress dialog while formatting SD card [CHAR LIMIT=NONE] -->
     <string name="progress_nomediapresent" product="default">No removable media present\u2026</string>
@@ -100,10 +100,10 @@
 
     <!-- Button to reboot the phone, within the Phone Options dialog -->
     <string name="reboot_system" product="tablet">Reboot tablet</string>
-    <string name="reboot_system" product="default">Reboot phone</string>
+    <string name="reboot_system" product="default">Reiniciar Nexus</string>
 
     <!-- Button to reboot the phone, within the Reboot Options dialog -->
-    <string name="reboot_reboot">Reboot</string>
+    <string name="reboot_reboot">Reiniciar</string>
     <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
     <string name="reboot_recovery">Recovery</string>
     <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
@@ -116,12 +116,12 @@
     <string name="reboot_download">Download</string>
 
     <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-    <string name="reboot_progress">Rebooting\u2026</string>
+    <string name="reboot_progress">Reiniciando\u2026</string>
     <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
     <string name="reboot_confirm" product="tablet">Your tablet will reboot.</string>
-    <string name="reboot_confirm" product="default">Your phone will reboot.</string>
+    <string name="reboot_confirm" product="default">Tu Nexus se reiniciará.</string>
     <!-- label for item that reboots the phone in phone options dialog -->
-    <string name="global_action_reboot">Reboot</string>
+    <string name="global_action_reboot">Reiniciar</string>
 
     <string name="default_string">Default</string>
 
@@ -135,6 +135,6 @@
     <string name="permdesc_accessTorchService">Allows an app to access the torch service. Should never be needed for normal apps.</string>
 
     <!-- Flashlight notification -->
-    <string name="notification_flashlight_on_title">Flashlight is on</string>
-    <string name="notification_flashlight_on_summary">Tap to turn off</string>
+    <string name="notification_flashlight_on_title">Linterna encendida</string>
+    <string name="notification_flashlight_on_summary">Pulsa para apagar!</string>
 </resources>
