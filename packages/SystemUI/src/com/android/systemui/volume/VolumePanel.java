@@ -51,6 +51,8 @@ import android.os.Debug;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
+import android.provider.Settings;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.KeyEvent;
