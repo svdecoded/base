@@ -27079,6 +27079,7 @@ package android.provider {
     field public static final java.lang.String USER_ROTATION = "user_rotation";
     field public static final deprecated java.lang.String USE_GOOGLE_MAIL = "use_google_mail";
     field public static final java.lang.String VIBRATE_ON = "vibrate_on";
+    field public static final java.lang.String VOLUME_ADJUST_SOUND = "volume_adjust_sound";
     field public static final java.lang.String VOLUME_ALARM = "volume_alarm";
     field public static final java.lang.String VOLUME_BLUETOOTH_SCO = "volume_bluetooth_sco";
     field public static final java.lang.String VOLUME_MUSIC = "volume_music";
